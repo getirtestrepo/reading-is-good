@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   reading-is-good-service:
+    image: "getirdockerrepo/latest"
     build: .
     restart: always
     ports:
