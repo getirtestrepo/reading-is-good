@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "acde4d5a-4a6a-41bb-9f1d-0b5bc07188ab",
+		"name": "OrderIsGood",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"sihab\",\r\n    \"lastName\": \"demir\",\r\n    \"password\" : \"1234\",\r\n    \"age\": 45,\r\n    \"address\": \"Istanbul\",\r\n    \"mobileNumber\" : 111223123433\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"1234\",\r\n    \"mobileNumber\" : 111223123433\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerDetail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEyMjMxMjM0MzMiLCJzY29wZXMiOltdLCJpYXQiOjE2MjA3MzI2NzUsImV4cCI6MTYyMDczODY3NX0.CSFI1wFtBCVYyOiAr8Yy_gC2Uwoj-3UppNepe9EHiNJyx6jWiE4dnTv-AEgxv-uZOeiLmksXb8AAp7lx6PfCHQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addStock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stockName\" : \"KITAP\",\r\n    \"stockCode\" : \"ABC100\",\r\n    \"stockPrice\" : 100,\r\n    \"stockCount\" : 500\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/stock/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stock",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "placeOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEyMjMxMjM0MzMiLCJzY29wZXMiOltdLCJpYXQiOjE2MjA3MzMzMzYsImV4cCI6MTYyMDczOTMzNn0.tMlRD9h_pFp0Afbg98ARg5wX0CQhGyHw1CqdLeeZ1jUKRTaIIzxnWGtvROIhUGzwMiJS4DjoDFyC_0E6cc5s_g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderCode\": \"ABC100\",\r\n    \"orderCount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/buy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEyMjMxMjM0MzMiLCJzY29wZXMiOltdLCJpYXQiOjE2MjA3MzMxNDUsImV4cCI6MTYyMDczOTE0NX0.7nKVkiUAOnuFP6u4JdBaIT6lQ-NwUfN07jZZicwhX3Dysg0yTglsqH5VG-VG80EfbZT1nlaYtpDNCbqceBkHDw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/get?orderId=609a387a79833d079549d2fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "609a387a79833d079549d2fb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerOrders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEyMjMxMjM0MzMiLCJzY29wZXMiOltdLCJpYXQiOjE2MjA3MzMzMzYsImV4cCI6MTYyMDczOTMzNn0.tMlRD9h_pFp0Afbg98ARg5wX0CQhGyHw1CqdLeeZ1jUKRTaIIzxnWGtvROIhUGzwMiJS4DjoDFyC_0E6cc5s_g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/get/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"get",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
