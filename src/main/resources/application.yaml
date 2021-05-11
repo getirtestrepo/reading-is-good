@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: reading-is-good-service
+
+server:
+  port: 8080
+
+---
+### Dev Profile
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      database: bookdb
+      host: mongo_db
+      port: 27017
+
+reading-is-good-service:
+  jwtSecret: ${JWT_SECRET:testjwtsecret}
+  jwtExpirationInMs: ${JWT_EXPIRATION:6000000}
+
+logging:
+  level:
+    com.reading.readingisgood: DEBUG
