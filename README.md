@@ -1,6 +1,6 @@
 # reading-is-good project
 
-The project aim is to privide basic operations for online book store, such as order, stock, shipment.
+The project aim is to provide basic operations for online book store, such as order, stock, shipment.
 used libraries, jdk11, spring-boot 2.3.10, mongodb
 
 image is hosted on docker hub
